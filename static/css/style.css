@@ -10,15 +10,15 @@ body {
 .menu li { display: inline-block; }
 .article-meta, .menu a {
   text-decoration: none;
-  background: #eee;
+  /* background: #eee; */
   padding: 5px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
-.menu, .article-meta, footer { text-align: center; }
+.menu, footer { text-align: center; }
 .title { font-size: 1.1em; }
 footer a { text-decoration: none; }
 hr {
-  border-style: dashed;
+  /* border-style: dashed; */
   color: #ddd;
 }
 
@@ -49,3 +49,41 @@ table {
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
+
+.sidenav {
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 35px;
+  text-align: right;
+}
+
+.sidenav a {
+  text-decoration: none;
+  display: block;
+  color: #0864c7;
+}
+
+.main {
+  padding-left: 170px;
+}
+
+@media screen and (max-width: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 80px;
+  }
+  .sidenav a {
+    font-size: small;
+  }
+  .main {
+    padding-left: 100px;
+  }
+}
+
+.list-title {
+  padding: 5px;
+}

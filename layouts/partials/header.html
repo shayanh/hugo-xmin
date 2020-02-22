@@ -10,11 +10,15 @@
   </head>
 
   <body>
-    <nav>
-    <ul class="menu">
+    <div class="sidenav">
       {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
       {{ end }}
-    </ul>
+    </div>
+
+    <div class="main">
+
+    <h2>
+      {{ .Site.Title }}
+    </h2>
     <hr/>
-    </nav>
