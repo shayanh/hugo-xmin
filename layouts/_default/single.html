@@ -1,11 +1,34 @@
 {{ partial "header.html" . }}
+
+
 <div class="article-meta">
+
+{{ if eq (.Params.meta_lang) "fa" }}
+<h1 lang="fa" dir="rtl"><span class="title">{{ .Title | markdownify }}</span></h1>
+{{ else }}
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h3 class="date">{{ .Date.Format "02 Jan 2006" }}</h3>{{ end }}
+{{ end }}
+
+{{ with .Params.author }}
+<h2 class="author">{{ . }}</h2>
+{{ end }}
+
+{{ if (gt .Params.date 0) }}
+{{ if eq (.Params.meta_lang) "fa" }}
+<div class="date-fa"><h3>{{ .Date.Format "02 Jan 2006" }}</h3></div>
+{{ else }}
+<h3 class="date">{{ .Date.Format "02 Jan 2006" }}</h3>
+{{ end }}
+{{ end }}
+
 </div>
 
+{{ if eq (.Params.lang) "fa" }}
+<main lang="fa" dir="rtl">
+{{ else }}
 <main>
+{{ end }}
+
 {{ .Content }}
 </main>
 

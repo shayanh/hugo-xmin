@@ -6,14 +6,18 @@
 
 {{ .Content }}
 
-{{if not .IsHome }}
+{{ if not .IsHome }}
 <ul>
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
   {{ range (where $pages "Section" "!=" "") }}
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    {{ if eq (.Params.meta_lang) "fa" }}
+    <a href="{{ .RelPermalink }}" lang="fa">{{ .Title | markdownify }}</a>
+    {{ else }}
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    {{ end }}
   </li>
   {{ end }}
 </ul>
