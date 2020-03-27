@@ -4,7 +4,15 @@
 <h1 class="list-title">{{ .Title | markdownify }}</h1>
 {{ end }}
 
+{{ if eq (.Params.lang) "fa" }}
+<main lang="fa" dir="rtl">
+{{ else }}
+<main>
+{{ end }}
+
 {{ .Content }}
+
+</main>
 
 {{ if not .IsHome }}
 <ul>
